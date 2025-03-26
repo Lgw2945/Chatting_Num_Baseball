@@ -7,12 +7,26 @@ void UUW_Main::NativeConstruct()
 {
     Super::NativeConstruct();
     Restart->OnClicked.AddDynamic(this, &UUW_Main::OnRestartClicked);
-    UpdateCount(3); // 초기값 설정
+    UpdateCount(3); // 초기 카운트
 
     // 클라이언트 Restart 비활성화
     if (!GetOwningPlayer()->HasAuthority())
     {
         Restart->SetIsEnabled(false);
+        Restart->SetVisibility(ESlateVisibility::Hidden);
+    }
+
+    AMain_GM* GM = Cast<AMain_GM>(UGameplayStatics::GetGameMode(GetWorld()));
+    if (GM && ButtonText)
+    {
+        if (GM->bGameStarted)
+        {
+            ButtonText->SetText(FText::FromString("Restart"));
+        }
+        else
+        {
+            ButtonText->SetText(FText::FromString("Start"));
+        }
     }
 }
 

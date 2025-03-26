@@ -8,8 +8,13 @@
 void AMain_PC::BeginPlay()
 {
     Super::BeginPlay();
-    SetShowMouseCursor(false);
-    SetInputMode(FInputModeGameOnly());
+    SetShowMouseCursor(true);
+
+    FInputModeGameAndUI InputMode;
+    InputMode.SetLockMouseToViewportBehavior(EMouseLockMode::DoNotLock); // 커서 가두지 않기
+    InputMode.SetHideCursorDuringCapture(false); // 커서 보이게
+    SetInputMode(InputMode);
+
     SetUniqueUserName();
 }
 
@@ -60,26 +65,17 @@ void AMain_PC::FocusGame()
     SetInputMode(FInputModeGameOnly());
 }
 
-void AMain_PC::SetUniqueUserName()
+void AMain_PC::SetUniqueUserName() // 이름
 {
-    /*UMyGameInstance* MyGI = GetGameInstance<UMyGameInstance>();
-    if (MyGI)
-    {
-        int32 PlayerIndex = GetWorld()->GetGameState()->PlayerArray.Num();
-        FString NewName = FString::Printf(TEXT("Player%d"), PlayerIndex);
-        MyGI->SetUserName(NewName);
-    }*/
-
     UMyGameInstance* MyGI = GetGameInstance<UMyGameInstance>();
     if (MyGI)
     {
-        if (HasAuthority())
+        if (HasAuthority()) // 호스트만 가지고 있다함 (true)
         {
             MyGI->SetUserName(TEXT("Host"));
         }
         else
         {
-            // 클라이언트의 경우, 클라이언트 인덱스를 기반으로 이름 설정
             int32 ClientIndex = 0;
             TArray<AActor*> OutActors;
             UGameplayStatics::GetAllActorsOfClass(GetWorld(), APlayerController::StaticClass(), OutActors);
@@ -101,7 +97,7 @@ void AMain_PC::SetUniqueUserName()
     }
     else
     {
-        UE_LOG(LogTemp, Error, TEXT("Failed to get GameInstance in SetUniqueUserName."));
+        UE_LOG(LogTemp, Error, TEXT("Failed to get GameInstance."));
     }
 }
 

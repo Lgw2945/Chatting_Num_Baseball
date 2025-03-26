@@ -3,6 +3,7 @@
 #include "Components/ScrollBox.h"
 #include "Components/EditableTextBox.h"
 #include "Main_PC.h"
+#include "Main_GM.h"
 #include "Kismet/GameplayStatics.h"
 
 void UUW_Chat::NativeConstruct()
@@ -50,7 +51,7 @@ void UUW_Chat::OnChatTextCommitted(const FText& Text, ETextCommit::Type CommitMe
         }
         else
         {
-            AddChatMessage("Invalid guess. Use '/123' format.");
+            AddChatMessage("Invalid guess. EX) '/123'.");
         }
         MyPC->FocusGame();
     }

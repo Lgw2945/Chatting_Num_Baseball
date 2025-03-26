@@ -19,6 +19,11 @@ public:
     void BroadcastMessage(const FString& Message);
     void EndGame(APlayerController* Winner);
 
+    UPROPERTY()
+    bool bGameEnded;
+    UPROPERTY()
+    bool bGameStarted;
+
 private:
     UPROPERTY()
     FString SecretNumber;

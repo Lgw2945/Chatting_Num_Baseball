@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\CH4_NumBall.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{F31BBDD1-B3E8-3BCC-9652-680E16935819}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\CH4_NumBall.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\CH4_NumBallEditor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\.vsconfig" />
+    <Filter Include="Config">
+      <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultInput.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Source\CH4_NumBall">
+      <UniqueIdentifier>{9ED5E6EA-8BAA-3120-87AC-1443CF0E5EAF}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\CH4_NumBall\CH4_NumBall.Build.cs">
+      <Filter>Source\CH4_NumBall</Filter>
+    </None>
+    <ClCompile Include="..\..\Source\CH4_NumBall\CH4_NumBall.cpp">
+      <Filter>Source\CH4_NumBall</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CH4_NumBall\CH4_NumBall.h">
+      <Filter>Source\CH4_NumBall</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CH4_NumBall\Main_GM.cpp">
+      <Filter>Source\CH4_NumBall</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CH4_NumBall\Main_GM.h">
+      <Filter>Source\CH4_NumBall</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CH4_NumBall\Main_HUD.cpp">
+      <Filter>Source\CH4_NumBall</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CH4_NumBall\Main_HUD.h">
+      <Filter>Source\CH4_NumBall</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CH4_NumBall\Main_PC.cpp">
+      <Filter>Source\CH4_NumBall</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CH4_NumBall\Main_PC.h">
+      <Filter>Source\CH4_NumBall</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CH4_NumBall\MyGameInstance.cpp">
+      <Filter>Source\CH4_NumBall</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CH4_NumBall\MyGameInstance.h">
+      <Filter>Source\CH4_NumBall</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CH4_NumBall\Num_Baseball_Game.cpp">
+      <Filter>Source\CH4_NumBall</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CH4_NumBall\Num_Baseball_Game.h">
+      <Filter>Source\CH4_NumBall</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CH4_NumBall\Player_Base.cpp">
+      <Filter>Source\CH4_NumBall</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CH4_NumBall\Player_Base.h">
+      <Filter>Source\CH4_NumBall</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CH4_NumBall\UW_Chat.cpp">
+      <Filter>Source\CH4_NumBall</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CH4_NumBall\UW_Chat.h">
+      <Filter>Source\CH4_NumBall</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CH4_NumBall\UW_Main.cpp">
+      <Filter>Source\CH4_NumBall</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CH4_NumBall\UW_Main.h">
+      <Filter>Source\CH4_NumBall</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

@@ -56,7 +56,6 @@ bool AMain_HUD::CreateUIObject()
 {
     if (MainUIClass)
     {
-        //UE_LOG(LogTemp, Waring, TEXT("123"));
         MainUIObject = CreateWidget<UUW_Main>(GetOwningPlayerController(), MainUIClass);
         if (MainUIObject)
         {

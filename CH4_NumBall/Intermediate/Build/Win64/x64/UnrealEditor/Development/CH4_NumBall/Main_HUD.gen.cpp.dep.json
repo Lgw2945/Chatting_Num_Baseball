@@ -1,0 +1,20 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\git\\chatting_num_baseball\\ch4_numball\\intermediate\\build\\win64\\unrealeditor\\inc\\ch4_numball\\uht\\main_hud.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\git\\chatting_num_baseball\\ch4_numball\\intermediate\\build\\win64\\x64\\ch4_numballeditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
+        "Includes": [
+            "c:\\git\\chatting_num_baseball\\ch4_numball\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\ch4_numball\\definitions.ch4_numball.h",
+            "c:\\git\\chatting_num_baseball\\ch4_numball\\source\\ch4_numball\\main_hud.h",
+            "c:\\program files\\epic games\\ue_5.5\\engine\\source\\runtime\\engine\\classes\\gameframework\\hud.h",
+            "c:\\program files\\epic games\\ue_5.5\\engine\\source\\runtime\\engine\\classes\\gameframework\\hudhitbox.h",
+            "c:\\program files\\epic games\\ue_5.5\\engine\\source\\runtime\\engine\\classes\\gameframework\\debugtextinfo.h",
+            "c:\\program files\\epic games\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\debugtextinfo.generated.h",
+            "c:\\program files\\epic games\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\hud.generated.h",
+            "c:\\git\\chatting_num_baseball\\ch4_numball\\intermediate\\build\\win64\\unrealeditor\\inc\\ch4_numball\\uht\\main_hud.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

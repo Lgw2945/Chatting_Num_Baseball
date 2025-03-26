@@ -14,6 +14,7 @@ public:
     virtual void BeginPlay() override;
 
     TSharedPtr<class SWidget> GetChatInputTextObject();
+    
     void AddChatMessage(const FString& Message);
     void UpdateResult(const FString& Message);
     void UpdateCount(int32 Remaining);
@@ -24,6 +25,4 @@ private:
 
     bool CheckUIObject();
     bool CreateUIObject();
-
-    void InitializeHUD();
 };

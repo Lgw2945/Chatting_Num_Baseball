@@ -13,24 +13,34 @@ class CH4_NUMBALL_API UUW_Main : public UUserWidget
 
 public:
     virtual void NativeConstruct() override;
-    TSharedPtr<class SWidget> GetChatInputTextObject();
-    void AddChatMessage(const FString& Message);
-    void UpdateResult(const FString& Message);
-    void UpdateCount(int32 Remaining);
-
-private:
-    UPROPERTY(Meta = (BindWidget))
-    class UUW_Chat* WB_Chat;
-
-    UPROPERTY(Meta = (BindWidget))
-    class UTextBlock* Result;
-
-    UPROPERTY(Meta = (BindWidget))
-    class UTextBlock* Count;
-
-    UPROPERTY(Meta = (BindWidget))
-    class UButton* Restart;
 
     UFUNCTION()
     void OnRestartClicked();
+
+    UFUNCTION(BlueprintCallable)
+    void AddChatMessage(const FString& Message);
+
+    UFUNCTION(BlueprintCallable)
+    void UpdateResult(const FString& Message);
+
+    UFUNCTION(BlueprintCallable)
+    void UpdateCount(int32 Remaining);
+
+    TSharedPtr<SWidget> GetChatInputTextObject();
+
+private:
+    UPROPERTY(meta = (BindWidget))
+    class UButton* Restart;
+
+    UPROPERTY(meta = (BindWidget))
+    class UTextBlock* Result;
+
+    UPROPERTY(meta = (BindWidget))
+    class UTextBlock* Count;
+
+    UPROPERTY(meta = (BindWidget))
+    class UUW_Chat* WB_Chat;
+
+    UPROPERTY(meta = (BindWidget))
+    class UTextBlock* ButtonText;
 };

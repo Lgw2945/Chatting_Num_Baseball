@@ -9,12 +9,16 @@ AMain_GM::AMain_GM()
     DefaultPawnClass = APlayer_Base::StaticClass();
     PlayerControllerClass = AMain_PC::StaticClass();
     HUDClass = AMain_HUD::StaticClass();
+
+    PlayerAttempts.Empty();
+    bGameEnded = false;
+    bGameStarted = false;
 }
 
 void AMain_GM::BeginPlay()
 {
     Super::BeginPlay();
-    GenerateSecretNumber();
+    //GenerateSecretNumber();
 }
 
 void AMain_GM::GenerateSecretNumber()
@@ -49,7 +53,7 @@ void AMain_GM::ProcessGuess(APlayerController* Player, const FString& Guess)
 
     if (PlayerAttempts[Player] <= 0)
     {
-        BroadcastMessage(FString::Printf(TEXT("%s has no attempts left."), *Player->GetName()));
+        BroadcastMessage(FString::Printf(TEXT("%s has no Chance."), *Player->GetName()));
         return;
     }
 
@@ -79,14 +83,23 @@ void AMain_GM::ProcessGuess(APlayerController* Player, const FString& Guess)
     {
         BroadcastMessage(FString::Printf(TEXT("%s wins with %s!"), *Player->GetName(), *Guess));
         EndGame(Player);
+        SecretNumber.Empty();
+        bGameEnded = true;
+        return; // 카운트 0 만들고 탈출 (draw뜸)
     }
     else
     {
         BroadcastMessage(FString::Printf(TEXT("%s - %s"), *Guess, *Result)); //0S0B 출력
+
         if (PlayerAttempts[Player] == 0)
         {
-            BroadcastMessage(FString::Printf(TEXT("%s is out of attempts."), *Player->GetName()));
+            BroadcastMessage(FString::Printf(TEXT("%s is out of Chance."), *Player->GetName()));
         }
+    }
+
+    if (bGameEnded) // 추가 로직 방지
+    {
+        return;
     }
 
     bool AllPlayersOut = true;
@@ -100,7 +113,7 @@ void AMain_GM::ProcessGuess(APlayerController* Player, const FString& Guess)
     }
     if (AllPlayersOut)
     {
-        BroadcastMessage("Draw! No one guessed the number.");
+        BroadcastMessage("Draw!");
         EndGame(nullptr);
     }
 }
@@ -126,9 +139,13 @@ void AMain_GM::EndGame(APlayerController* Winner)
         AMain_PC* PC = Cast<AMain_PC>(Elem.Key);
         if (PC)
         {
+            PC->UpdateCount(0);
+
             if (Winner == Elem.Key)
             {
                 PC->UpdateResult("You Win!");
+
+                Elem.Value = 0;
             }
             else if (Winner == nullptr)
             {
@@ -140,11 +157,15 @@ void AMain_GM::EndGame(APlayerController* Winner)
             }
         }
     }
+    bGameStarted = false;
 }
 
 void AMain_GM::RestartGame()
 {
     GenerateSecretNumber();
+    bGameEnded = false;
+    bGameStarted = true;
+
     for (auto& Elem : PlayerAttempts)
     {
         Elem.Value = 3;

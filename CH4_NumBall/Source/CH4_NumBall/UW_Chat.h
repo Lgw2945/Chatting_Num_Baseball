@@ -12,6 +12,8 @@ class CH4_NUMBALL_API UUW_Chat : public UUserWidget
 
 public:
     virtual void NativeConstruct() override;
+
+    UFUNCTION(BlueprintCallable)
     void AddChatMessage(const FString& Message);
     FText GetChatInputTextMessage();
     void SetChatInputTextMessage(const FText& Text);
